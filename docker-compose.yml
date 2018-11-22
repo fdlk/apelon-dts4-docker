@@ -1,0 +1,12 @@
+apelon-db:
+ image: "mysql:5.6"
+ environment:
+ - MYSQL_ROOT_PASSWORD=dts4
+ - MYSQL_DATABASE=dts4
+apelon-app:
+ build: .
+ links:
+ - apelon-db
+ ports:
+ - "9990:9990"
+ - "8080:8080"
